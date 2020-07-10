@@ -39,7 +39,7 @@ public class SmokeTest extends BaseClass {
         waitInSeconds(5);
 
         // AND
-        homePage.hoverToExploreNav().clickOnPorts();
+        homePage.hoverToExploreNavigation().clickOnPorts();
         waitInSeconds(5);
 
         // WHEN
@@ -48,5 +48,8 @@ public class SmokeTest extends BaseClass {
 
         // THEN
         Assert.assertEquals(portsPage.getSearchBarValue(), "Honolulu, Oahu");
+
+        // AND
+        Assert.assertEquals(portsPage.getPortInformation(), "PORT OF DEPARTURE");
     }
 }

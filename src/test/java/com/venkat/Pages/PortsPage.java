@@ -5,6 +5,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PortsPage {
     private WebDriver driver;
 
@@ -14,6 +17,10 @@ public class PortsPage {
 
     private WebElement clickOnSearchResult() {
         return driver.findElement(By.xpath("//*[@class='list-find-port']/li[2]/a"));
+    }
+
+    private List<WebElement> portInformation() {
+        return driver.findElements(By.xpath("//*[@id='map-info-clone']/div/ul/li[1]/div[2]/span"));
     }
 
     public PortsPage(WebDriver driver) {
@@ -35,5 +42,10 @@ public class PortsPage {
     @Step("Get Search text")
     public String getSearchBarValue() {
         return searchBar().getAttribute("value");
+    }
+
+    @Step("Get Port Information")
+    public String getPortInformation() {
+        return portInformation().stream().map(i -> i.getText()).collect(Collectors.joining(" "));
     }
 }

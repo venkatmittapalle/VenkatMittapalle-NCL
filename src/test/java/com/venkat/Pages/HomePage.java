@@ -48,11 +48,9 @@ public class HomePage {
     }
 
     @Step("Click on Explore")
-    public HomePage hoverToExploreNav() {
+    public HomePage hoverToExploreNavigation() {
         Actions action = new Actions(driver);
-
         action.moveToElement(exploreNav()).build().perform();
-
         return this;
     }
 

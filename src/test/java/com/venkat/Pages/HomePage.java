@@ -60,6 +60,12 @@ public class HomePage {
         return new PortsPage(driver);
     }
 
+    @Step("Click on the Shore Excursions page")
+    public PortsPage clickOnShoreExcursions() {
+        shoreExcursionsPage().click();
+        return new PortsPage(driver);
+    }
+
     @Step("Validate element presence")
     private boolean elementExists(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 5);
